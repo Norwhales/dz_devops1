@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+
+  dz_dev1:
+    image: ubuntu:latest
+    container_name: dz_dev1
+    hostname: dz_dev1
+    command: bash -c "cd dz_devops && touch change_me.txt"
+    ports:
+     - 5000:5000
+    volumes:
+     - ./dz_devops:/dz_devops
+
+  dz_dev2:
+    image: ubuntu:latest
+    container_name: dz_dev2
+    hostname: dz_dev2
+    command: bash -c "cd dz_devops && chmod +x change_me.txt"
+    ports:
+     - 5001:5001
+    volumes:
+     - ./dz_devops:/dz_devops
